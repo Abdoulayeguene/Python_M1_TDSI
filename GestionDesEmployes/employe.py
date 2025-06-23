@@ -9,7 +9,8 @@ def ajouter_employe(liste_employes):
             # Vérifier que le nom n'est pas vide
             if not nom:
                 print("Le nom ne doit pas être vide.")
-                continue
+            else:
+                print("Le nom est valide.")
 
             # Demander l'âge de l'employé
             age_str = input("Entrez l'âge de l'employé : ").strip()
@@ -18,10 +19,11 @@ def ajouter_employe(liste_employes):
             # Vérifier que l'âge est positif
             if age <= 0:
                 print("L'âge doit être un entier positif.")
-                continue
+            else:
+                print("L'âge est valide.")
 
             # Demander le poste de l'employé
-            poste = input("Entrez le poste de l'employé : ").strip()
+            poste = input("Entrez le poste de l'em1ployé : ").strip()
             # Vérifier que le poste n'est pas vide
             if not poste:
                 print("Le poste ne doit pas être vide.")
@@ -101,3 +103,20 @@ def supprimer_employe(liste_employes):
             return
     # Si l'employé n'est pas trouvé
     print(f"Aucun employé trouvé avec le nom '{nom}'.")
+
+def afficher_employes(liste_employes):
+    """
+    Affiche tous les employés de la liste avec leurs informations.
+    """
+    # Vérifier si la liste est vide
+    if not liste_employes:
+        print("Aucun employé à afficher.")
+        return
+    # Parcourir la liste des employés
+    for i, employe in enumerate(liste_employes, start=1):
+        # Afficher les informations de chaque employé
+        print(f"Employé {i} :")
+        print(f"  Nom   : {employe['nom']}")
+        print(f"  Âge   : {employe['age']}")
+        print(f"  Poste : {employe['poste']}")
+        print("-----------------------------")
